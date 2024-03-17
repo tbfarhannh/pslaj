@@ -6,7 +6,6 @@
 package plsaj.Login;
 
 import plsaj.Font.CustomFont;
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
@@ -30,8 +29,8 @@ public class formReg extends javax.swing.JFrame {
     }
     
     void bersih(){
-        usernameText.setText("enter your username");
-        passwordText.setText("enter your username");
+//        usernameText.setText("enter your username");
+//        passwordText.setText("enter your username");
     }
 
     /**
@@ -45,12 +44,16 @@ public class formReg extends javax.swing.JFrame {
 
         bgPanel = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
+        panelUsername1 = new javax.swing.JPanel();
+        usernameLbl = new javax.swing.JLabel();
+        usernameText1 = new javax.swing.JTextField();
+        bgUsername = new plsaj.Custom.customButtonAcil();
+        panelPassword = new javax.swing.JPanel();
+        passwordLbl = new javax.swing.JLabel();
+        passwordText = new javax.swing.JPasswordField();
+        bgPassword = new plsaj.Custom.customButtonAcil();
         myAccount = new javax.swing.JLabel();
         buttonX = new plsaj.Custom.FButton();
-        usernameLabel = new javax.swing.JLabel();
-        usernameText = new plsaj.Custom.FTextField();
-        passwordLabel = new javax.swing.JLabel();
-        passwordText = new plsaj.Custom.FTextField();
         ForgotPassword = new javax.swing.JLabel();
         buttonLogin = new plsaj.Custom.FButton2();
         buttonSignUp = new plsaj.Custom.FButton1();
@@ -82,6 +85,77 @@ public class formReg extends javax.swing.JFrame {
         loginPanel.setOpaque(false);
         loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        panelUsername1.setOpaque(false);
+        panelUsername1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        usernameLbl.setText("Username");
+        panelUsername1.add(usernameLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        usernameText1.setText("Username");
+        usernameText1.setBorder(null);
+        usernameText1.setOpaque(false);
+        usernameText1.setPreferredSize(new java.awt.Dimension(340, 50));
+        usernameText1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                usernameText1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                usernameText1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                usernameText1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                usernameText1MouseReleased(evt);
+            }
+        });
+        panelUsername1.add(usernameText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        bgUsername.setBorder(null);
+        bgUsername.setEnabled(false);
+        bgUsername.setTepi(25);
+        panelUsername1.add(bgUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 410, 70));
+
+        loginPanel.add(panelUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 430, 140));
+
+        panelPassword.setOpaque(false);
+        panelPassword.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        passwordLbl.setText("Password");
+        panelPassword.add(passwordLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        passwordText.setText("jPasswordField1");
+        passwordText.setBorder(null);
+        passwordText.setOpaque(false);
+        passwordText.setPreferredSize(new java.awt.Dimension(340, 50));
+        passwordText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordTextMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordTextMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                passwordTextMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                passwordTextMouseReleased(evt);
+            }
+        });
+        passwordText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTextActionPerformed(evt);
+            }
+        });
+        panelPassword.add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        bgPassword.setBorder(null);
+        bgPassword.setEnabled(false);
+        bgPassword.setTepi(25);
+        panelPassword.add(bgPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 410, 70));
+
+        loginPanel.add(panelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 430, 140));
+
         myAccount.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsaj/Img/account.png"))); // NOI18N
         loginPanel.add(myAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
@@ -93,42 +167,6 @@ public class formReg extends javax.swing.JFrame {
             }
         });
         loginPanel.add(buttonX, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 40, 40));
-
-        usernameLabel.setFont(Poppins.getPoppinsSemiBold().deriveFont(18f));
-        usernameLabel.setText("Username");
-        loginPanel.add(usernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 260, 40));
-
-        usernameText.setForeground(new java.awt.Color(102, 102, 102));
-        usernameText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        usernameText.setText("enter your username");
-        usernameText.setFont(Poppins.getPoppinsMedium().deriveFont(15f));
-        usernameText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameTextFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                usernameTextFocusLost(evt);
-            }
-        });
-        loginPanel.add(usernameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 360, 45));
-
-        passwordLabel.setFont(Poppins.getPoppinsSemiBold().deriveFont(18f));
-        passwordLabel.setText("Password");
-        loginPanel.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 40));
-
-        passwordText.setForeground(new java.awt.Color(102, 102, 102));
-        passwordText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        passwordText.setText("enter your password");
-        passwordText.setFont(Poppins.getPoppinsMedium().deriveFont(15f));
-        passwordText.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordTextFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordTextFocusLost(evt);
-            }
-        });
-        loginPanel.add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, 360, 45));
 
         ForgotPassword.setFont(Poppins.getPoppinsSemiBold().deriveFont(13f));
         ForgotPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -154,9 +192,9 @@ public class formReg extends javax.swing.JFrame {
         });
         loginPanel.add(buttonSignUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 360, 45));
 
-        bgPanel.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 500, 650));
+        bgPanel.add(loginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 650));
 
-        backgroundLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsaj/Img/bg_login.png"))); // NOI18N
+        backgroundLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/plsaj/Img/bg_sign-up.png"))); // NOI18N
         bgPanel.add(backgroundLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(bgPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 650));
@@ -195,38 +233,61 @@ public class formReg extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonSignUpActionPerformed
 
-    private void usernameTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameTextFocusGained
+    private void usernameText1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameText1MouseEntered
         // TODO add your handling code here:
-        String username=usernameText.getText();
-        if (username.equals("enter your username")){
-            usernameText.setText("");
-        }
-    
-    }//GEN-LAST:event_usernameTextFocusGained
+        bgUsername.setBackground(bgUsername.getWarnaOver());
+        over = true;
+    }//GEN-LAST:event_usernameText1MouseEntered
 
-    private void passwordTextFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordTextFocusGained
+    private void usernameText1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameText1MouseExited
         // TODO add your handling code here:
-        String pass=passwordText.getText();
-        if (pass.equals("enter your password")){
-            passwordText.setText("");
-        }
-    }//GEN-LAST:event_passwordTextFocusGained
+        bgUsername.setBackground(bgUsername.getWarna());
+        over = false;
+    }//GEN-LAST:event_usernameText1MouseExited
 
-    private void passwordTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordTextFocusLost
+    private void usernameText1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameText1MousePressed
         // TODO add your handling code here:
-        String pass=passwordText.getText();
-        if(pass.equals("")|pass.equals("enter your password")){
-            passwordText.setText("enter your password");
-        }
-    }//GEN-LAST:event_passwordTextFocusLost
+        bgUsername.setBackground(bgUsername.getWarnaClick());
+    }//GEN-LAST:event_usernameText1MousePressed
 
-    private void usernameTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameTextFocusLost
+    private void usernameText1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameText1MouseReleased
         // TODO add your handling code here:
-        String username=usernameText.getText();
-        if(username.equals("")|username.equals("enter your username")){
-            usernameText.setText("enter your username");
+        if (over) {
+            bgUsername.setBackground(bgUsername.getWarnaOver());
+        } else {
+            bgUsername.setBackground(bgUsername.getWarna());
         }
-    }//GEN-LAST:event_usernameTextFocusLost
+    }//GEN-LAST:event_usernameText1MouseReleased
+
+    private void passwordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordTextActionPerformed
+
+    private void passwordTextMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextMouseEntered
+        // TODO add your handling code here:
+        bgPassword.setBackground(bgPassword.getWarnaOver());
+        over = true;
+    }//GEN-LAST:event_passwordTextMouseEntered
+
+    private void passwordTextMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextMouseExited
+        // TODO add your handling code here:
+        bgPassword.setBackground(bgPassword.getWarna());
+        over = false;
+    }//GEN-LAST:event_passwordTextMouseExited
+
+    private void passwordTextMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextMousePressed
+        // TODO add your handling code here:
+        bgPassword.setBackground(bgUsername.getWarnaClick());
+    }//GEN-LAST:event_passwordTextMousePressed
+
+    private void passwordTextMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordTextMouseReleased
+        // TODO add your handling code here:
+        if (over) {
+            bgPassword.setBackground(bgPassword.getWarnaOver());
+        } else {
+            bgPassword.setBackground(bgPassword.getWarna());
+        }
+    }//GEN-LAST:event_passwordTextMouseReleased
 
     /**
      * @param args the command line arguments
@@ -282,14 +343,18 @@ public class formReg extends javax.swing.JFrame {
     private javax.swing.JLabel ForgotPassword;
     private javax.swing.JLabel backgroundLogin;
     private javax.swing.JPanel bgPanel;
+    private plsaj.Custom.customButtonAcil bgPassword;
+    private plsaj.Custom.customButtonAcil bgUsername;
     private plsaj.Custom.FButton2 buttonLogin;
     private plsaj.Custom.FButton1 buttonSignUp;
     private plsaj.Custom.FButton buttonX;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel myAccount;
-    private javax.swing.JLabel passwordLabel;
-    private plsaj.Custom.FTextField passwordText;
-    private javax.swing.JLabel usernameLabel;
-    private plsaj.Custom.FTextField usernameText;
+    private javax.swing.JPanel panelPassword;
+    private javax.swing.JPanel panelUsername1;
+    private javax.swing.JLabel passwordLbl;
+    private javax.swing.JPasswordField passwordText;
+    private javax.swing.JLabel usernameLbl;
+    private javax.swing.JTextField usernameText1;
     // End of variables declaration//GEN-END:variables
 }

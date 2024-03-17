@@ -7,6 +7,7 @@ package plsajstore;
 //saisnaisnainsai
 //import crud.Model.DB.KoneksiDB;
 import plsaj.Login.formLogin;
+import plsaj.Login.formReg;
 
 /**
  *
@@ -19,8 +20,7 @@ public class plsaj_Contol {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        formLogin frame = new formLogin();
-//        KoneksiDB.koneksiDB();
+        formReg frame = new formReg();
         frame.setVisible(true);
     }
     
